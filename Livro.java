@@ -7,7 +7,7 @@ class Livro {
     String codigo, titulo, editora, edição;
     ArrayList<String> autores = new ArrayList<>();
     ArrayList<Exemplar> exemplares = new ArrayList<>();
-    ArrayList<Reservas> reservas = new ArrayList<>();
+    ArrayList<Reserva> reservas = new ArrayList<>();
     int ano;
 
     public Livro (String codigo, String titulo, String editora, String edição, String[] autores, int ano ){
