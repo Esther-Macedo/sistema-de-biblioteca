@@ -19,9 +19,7 @@ class Exemplar {
     public void fazerEmprestimo(){
         ///
     }
-
     
-
     //getters e setters
     public String getCodigo_livro() {
         return codigo_livro;
@@ -52,11 +50,7 @@ class Exemplar {
     }
 
     public String getStatus() {
-        if (this.status == Status.DISPONIVEL){
-            return "Disponível";
-        }
-
-        return "Emprestado";
+        return this.status.getDescricao();
     }
 
 }
