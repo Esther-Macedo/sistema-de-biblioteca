@@ -6,6 +6,10 @@ public class InterfaceUsuario {
 	private void inicializarComandos() {
 		comandos.put("emp", new EmprestarComando());
 		comandos.put("usu", new ConsultarUsuarioComando());
+		comandos.put("liv", new ConsultarLivroComando());
+		comandos.put("ntf", new ConsultarNotificacaoComando());
+		comandos.put("res", new ReservarComando());
+		comandos.put("sai", new SairComando());
 	}
 	
 	public void executarComando(String strComando, CarregadorParametros parametros) {
@@ -13,7 +17,7 @@ public class InterfaceUsuario {
 		comando.executar(parametros);
 	}
 	
-	//Métodos abaixo para fazer a interface com usuário via linha de commando
+	//Mï¿½todos abaixo para fazer a interface com usuï¿½rio via linha de commando
 	//...
 	
 
