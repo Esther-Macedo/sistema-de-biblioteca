@@ -10,6 +10,7 @@ public class InterfaceUsuario {
 		comandos.put("ntf", new ConsultarNotificacaoComando());
 		comandos.put("res", new ReservarComando());
 		comandos.put("sai", new SairComando());
+		comandos.put("dev", new DevolverComando());
 	}
 	
 	public void executarComando(String strComando, CarregadorParametros parametros) {
