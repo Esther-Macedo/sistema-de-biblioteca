@@ -1,4 +1,7 @@
-
+import CarregadorParametros;
+import Livro;
+import Repositorio;
+import Usuario;
 
 public class ReservarComando implements Comando {
 	public void executar(CarregadorParametros carregadorParametros) {
