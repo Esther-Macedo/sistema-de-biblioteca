@@ -7,6 +7,9 @@ public class EmprestarComando implements Comando {
 		
 		Livro livro = repositorio.obterLivroPorCodigo(carregadorParametros.getParametroDois());
 		
+		IRegraEmprestimo criadorEmprestimo = usuario.criadorEmprestimo();
+		criadorEmprestimo.emprestar(usuario, livro);
+		
 	}
 
 }

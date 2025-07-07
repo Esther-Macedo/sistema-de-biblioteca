@@ -100,6 +100,8 @@ class Livro implements ISubject {
         return this.exemplares.size();
     }
 
+
+    // Isso aqui fere Responsabilidade Unica?
     public Exemplar buscarAtualizarExemplar() {
         if (exemplares.size() > 0) {
             for (Exemplar exemplar : exemplares) {

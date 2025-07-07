@@ -9,5 +9,12 @@ public class Professor extends Usuario implements IObservadorReserva{
     public void update(){
         this.contadorNotificacoes++;
     }
+
+    @Override
+    public IRegraEmprestimo criadorEmprestimo() {
+        return new RegraProfessor();
+    }
+
+    
     
 }

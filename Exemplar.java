@@ -12,12 +12,9 @@ class Exemplar {
         this.codigo_livro = codigo_livro;
     }
 
-    public void atualizarEprestimos(){
-        emprestimos.add(emprestimo_atual);
-    }
     //adicionar um emprestimo
-    public void fazerEmprestimo(){
-        ///
+    public void adicionarEmprestimo(Emprestimo emprestimo){
+        this.emprestimo_atual = emprestimo;
     }
     
     //getters e setters

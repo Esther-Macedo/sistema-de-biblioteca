@@ -56,6 +56,10 @@ public abstract class Usuario {
         return emprestimos_abertos;
     }
 
+    public void adicionarEmprestimo(Emprestimo emprestimo) {
+        this.emprestimos.add(emprestimo);
+    }
+
     public ArrayList<Reserva> getReservas() {
         return reservas;
     }
