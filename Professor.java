@@ -1,6 +1,6 @@
 public class Professor extends Usuario implements IObservadorReserva{
 
-    private int contadorNotificacoes = 0 ;
+    private int contadorNotificacoes = 0;
     public Professor(String codigo, String nome) {
         super(codigo, nome);
         super.setTempoEmprestimo(8);
@@ -11,8 +11,8 @@ public class Professor extends Usuario implements IObservadorReserva{
     }
 
     @Override
-    public IRegraEmprestimo criadorEmprestimo() {
-        return new RegraProfessor();
+    public IValidadorRegraEmprestimo validadorRegraEmprestimo() {
+        return new ValidadorRegraProfessor();
     }
 
     

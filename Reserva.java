@@ -1,9 +1,11 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 public class Reserva {
-   private Usuario usuario;
-   private Livro livro; 
-   private LocalDateTime dataDaReserva;
+    private Usuario usuario;
+    private Livro livro; 
+    private LocalDateTime dataDaReserva;
+
+
     public Reserva(Usuario usuario, Livro livro){
         this.usuario = usuario;
         this.livro = livro;
@@ -29,7 +31,7 @@ public class Reserva {
     public boolean livroEstaNaReserva(String codigo) {
         return this.livro.getCodigo().equals(codigo);
     }
-    
+
     public LocalDateTime getDataDaReserva() {
         return dataDaReserva;
     }
@@ -46,7 +48,7 @@ public class Reserva {
 
     public String toString(){
         return String.format("Titulo: %s \n + Data da Reserva: %s \n",this.livro.getTitulo(), this.getDataDaReservaToString());
-         
+            
     }
 
     public void exibir(){

@@ -109,7 +109,7 @@ public abstract class Usuario {
         return false;
     }
 
-    public abstract IRegraEmprestimo criadorEmprestimo();
+    public abstract IValidadorRegraEmprestimo validadorRegraEmprestimo();
 
 
 }

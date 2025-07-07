@@ -8,7 +8,7 @@ public class AlunoGraduacao extends Usuario {
     }
     
     @Override
-    public IRegraEmprestimo criadorEmprestimo() {
-        return new RegraAluno(limiteLivros);
+    public IValidadorRegraEmprestimo validadorRegraEmprestimo() {
+        return new ValidadorRegraAluno(limiteLivros);
     }
 }

@@ -103,12 +103,10 @@ class Livro implements ISubject {
 
     // Isso aqui fere Responsabilidade Unica?
     public Exemplar buscarAtualizarExemplar() {
-        if (exemplares.size() > 0) {
-            for (Exemplar exemplar : exemplares) {
-                if(exemplar.getStatus().equals("Disponivel")) {
-                    exemplar.setStatus(Status.EMPRESTADO);
-                    return exemplar;
-                }
+        for (Exemplar exemplar : exemplares) {
+            if(exemplar.getStatus().equals("Disponivel")) {
+                exemplar.setStatus(Status.EMPRESTADO);
+                return exemplar;
             }
         }
         return null;
