@@ -71,5 +71,13 @@ class Livro {
     public void setAno(int ano) {
         this.ano = ano;
     }
+
+    public int getQtdReservas() {
+        return this.reservas.size();
+    }
+
+    public int getQtdExemplaresDisponiveis() {
+        return this.exemplares.size();
+    }
     
 }
