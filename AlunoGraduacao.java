@@ -1,4 +1,4 @@
-public class AlunoGraduacao extends Usuario {
+public class AlunoGraduacao extends Aluno {
 
     public AlunoGraduacao(String codigo,String nome, IRegraEmprestimo regraEmprestimo) {
         super(codigo, nome, regraEmprestimo);
@@ -6,5 +6,4 @@ public class AlunoGraduacao extends Usuario {
         this.limiteLivros = 2;
     }
     
-
 }

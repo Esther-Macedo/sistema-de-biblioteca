@@ -1,6 +1,6 @@
 public class RegraAluno implements IRegraEmprestimo {
     @Override
-    public boolean podeEmprestar(Usuario usuario, Livro livro) {
+    public boolean podeEmprestar(IUsuario usuario, Livro livro) {
         if (usuario.isDevendo()) {
             return false;
         } else if (usuario.getQtdEmprestimosAbertos() >= usuario.getLimiteLivros()){

@@ -1,22 +1,21 @@
 import java.util.ArrayList;
 
-public class Professor  implements IUsuario{
+public class Aluno implements IUsuario {
     String codigo;
     String nome;
     int tempoEmprestimo;
+    int limiteLivros;
     ArrayList<Emprestimo> emprestimos = new ArrayList<>();
     ArrayList<Reserva> reservas = new ArrayList<>();
     Boolean devendo;
     IRegraEmprestimo regraEmprestimo;
-    
-    public Professor(String codigo, String nome, IRegraEmprestimo regraEmprestimo) {
+
+    public Aluno(String codigo,String nome, IRegraEmprestimo regraEmprestimo) {
         this.codigo = codigo;
         this.nome = nome;
         this.devendo = false;
         this.regraEmprestimo = regraEmprestimo;
-        this.tempoEmprestimo = 8;
     }
-    
 
     public String getCodigo() {
         return codigo;
@@ -74,6 +73,14 @@ public class Professor  implements IUsuario{
 
     public void setDevendo(Boolean devendo) {
         this.devendo = devendo;
+    }
+
+    public int getLimiteLivros() {
+        return limiteLivros;
+    }
+
+    public void setLimiteLivros(int limiteLivros) {
+        this.limiteLivros = limiteLivros;
     }
 
     public IRegraEmprestimo getRegraEmprestimo() {
