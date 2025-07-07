@@ -14,10 +14,22 @@ public abstract class Usuario {
         this.devendo = false;
     }
 
-    public String getCodigo() {
-        return codigo;
+    public boolean temLivroEmprestado(String codigo) {
+        for (Emprestimo emprestimo : this.emprestimos) {
+            if (emprestimo.livroEstaEmprestado(codigo)) {
+                return true;
+            }
+        }
+        return false;
     }
-
+    
+    public void devolver(String codigoLivro){
+        for(Emprestimo emprestimo : this.emprestimos){
+            if(emprestimo.livroEstaEmprestado(codigoLivro)){
+                emprestimo.devolver();
+            }
+        }
+    }
     public void exibirEmprestimos(){
         //Essa print teria que ser na classe de mensságens
         System.out.println("Empréstimos");
@@ -33,6 +45,10 @@ public abstract class Usuario {
         }
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+    
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -94,15 +110,6 @@ public abstract class Usuario {
     public boolean temLivroReservado(String codigo) {
         for (Reserva reserva : this.reservas) {
             if (reserva.livroEstaNaReserva(codigo)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean temLivroEmprestado(String codigo) {
-        for (Emprestimo emprestimo : this.emprestimos) {
-            if (emprestimo.livroEstaEmprestado(codigo)) {
                 return true;
             }
         }

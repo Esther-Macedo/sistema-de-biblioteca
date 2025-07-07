@@ -8,7 +8,7 @@ public class ConsultarNotificacaoComando implements Comando {
 		
         Usuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());	
 
-
+		
 	}
 
 }

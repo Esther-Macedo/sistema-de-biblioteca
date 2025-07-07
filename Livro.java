@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 class Livro implements ISubject {
 
-    String codigo, titulo, editora, edição;
-    ArrayList<String> autores = new ArrayList<>();
-    ArrayList<Exemplar> exemplares = new ArrayList<>();
-    ArrayList<Reserva> reservas = new ArrayList<>();
-    ArrayList<IObservadorReserva> observadores = new ArrayList<>();
-    int ano;
+    private String codigo, titulo, editora, edição;
+    private ArrayList<String> autores = new ArrayList<>();
+    private ArrayList<Exemplar> exemplares = new ArrayList<>();
+    private ArrayList<Reserva> reservas = new ArrayList<>();
+    private ArrayList<IObservadorReserva> observadores = new ArrayList<>();
+    private int ano;
 
     public Livro (String codigo, String titulo, String editora, String edição, String[] autores, int ano ){
         this.codigo = codigo;
@@ -103,10 +103,12 @@ class Livro implements ISubject {
 
     // Isso aqui fere Responsabilidade Unica?
     public Exemplar buscarAtualizarExemplar() {
-        for (Exemplar exemplar : exemplares) {
-            if(exemplar.getStatus().equals("Disponivel")) {
-                exemplar.setStatus(Status.EMPRESTADO);
-                return exemplar;
+        if (exemplares.size() > 0) {
+            for (Exemplar exemplar : exemplares) {
+                if(exemplar.getStatus().equals("Disponivel")) {
+                    exemplar.setStatus(Status.EMPRESTADO);
+                    return exemplar;
+                }
             }
         }
         return null;
