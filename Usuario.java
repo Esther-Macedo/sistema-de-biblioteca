@@ -4,7 +4,6 @@ public class Usuario {
     String codigo;
     String nome;
     int tempoEmprestimo;
-    int limiteLivros;
     ArrayList<Emprestimo> emprestimos = new ArrayList<>();
     ArrayList<Reserva> reservas = new ArrayList<>();
     Boolean devendo;
@@ -73,14 +72,6 @@ public class Usuario {
 
     public void setDevendo(Boolean devendo) {
         this.devendo = devendo;
-    }
-
-    public int getLimiteLivros() {
-        return limiteLivros;
-    }
-
-    public void setLimiteLivros(int limiteLivros) {
-        this.limiteLivros = limiteLivros;
     }
 
     public IRegraEmprestimo getRegraEmprestimo() {
