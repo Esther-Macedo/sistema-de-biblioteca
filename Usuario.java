@@ -18,6 +18,21 @@ public abstract class Usuario {
         return codigo;
     }
 
+    public void exibirEmprestimos(){
+        //Essa print teria que ser na classe de mensságens
+        System.out.println("Empréstimos");
+        for (Emprestimo emprestimo : emprestimos){
+            emprestimo.exibir();;
+        }
+    }
+
+    public void exibirReservas(){
+        System.out.println("Reservas");
+        for (Reserva reserva : reservas){
+            reserva.exibir();
+        }
+    }
+
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }

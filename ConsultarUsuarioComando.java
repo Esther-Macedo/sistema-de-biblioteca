@@ -6,7 +6,9 @@ public class ConsultarUsuarioComando implements Comando {
 		Repositorio repositorio = Repositorio.obterInstancia();
 				
 		Usuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
-
+		
+		usuario.exibirEmprestimos();
+		usuario.exibirReservas();
 	}
 
 }
