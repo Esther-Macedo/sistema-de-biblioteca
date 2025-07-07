@@ -111,5 +111,32 @@ class Livro implements ISubject {
         }
         return null;
     }
+
+    public String toString(){
+        int qtdReservas = this.getQtdReservas();
+        String nomesReservas = "Sem reservas";
+        String exemplaresEmprestados = "Sem exemplares";
+        
+        if(qtdReservas > 0){
+            for (Reserva reserva : this.reservas) {
+                nomesReservas += reserva.getNomeUsuario() + "\n";
+            }
+        }
+
+        if(this.getQtdExemplaresDisponiveis() > 0){
+            for (Exemplar exemplar : this.exemplares) {
+                exemplaresEmprestados += exemplar.toString() + "\n";
+            }
+        }
+
+
+        String dadosFormatados = String.format("Titulo: %s \n Quantidade de Reservas: %i \n Nomes das reservas: %s \n Emprestimos: %s \n", 
+                                                this.getTitulo(), qtdReservas, nomesReservas, exemplaresEmprestados);
+        return dadosFormatados;
+    }
+
+    public void exibir(){
+        System.out.println(this.toString());
+    }
     
 }
