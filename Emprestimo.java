@@ -110,5 +110,26 @@ public class Emprestimo {
         return this.exemplar.getCodigo_exemplar().equals(codigo);
     }
     
+    public String toString(){
+        String status;
+        String devolucao;
+        String dataDevolucao;
+        if(this.isCorrente){
+            status = "Corrente";
+            devolucao = "Devolução Prevista:";
+            dataDevolucao = this.getDataDevolucaoPrevistaToString();
+        }else{
+            status = "Finalizado";
+            devolucao = "Devolução:";
+            dataDevolucao = this.getDataDevolucaoToString();
+        }
 
+        String dadosFormatados = String.format("Titulo: %s \n Data de Emprestimo: %s \n Status: %s \n %s %s \n", 
+                                                this.titulo, this.getDataEmprestimoToString(), status, devolucao, dataDevolucao);
+        return dadosFormatados;
+    }
+
+    public void exibir(){
+        System.out.println(this.toString());
+    }
 }
