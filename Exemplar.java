@@ -4,8 +4,8 @@ class Exemplar {
     String codigo_livro;
     String codigo_exemplar;
     Status status;
-    ArrayList<Emprestimo> emprestimos = new ArrayList<>();
-    Emprestimo emprestimo_atual;
+    ArrayList<Emprestimo> emprestimos= new ArrayList<>();
+    
     
     public Exemplar(String codigo_livro, String codigo_exemplar, Status status){
         this.codigo_exemplar = codigo_exemplar;
@@ -14,7 +14,7 @@ class Exemplar {
 
     //adicionar um emprestimo
     public void adicionarEmprestimo(Emprestimo emprestimo){
-        this.emprestimo_atual = emprestimo;
+        this.emprestimos.add(emprestimo);
     }
     
     //getters e setters
@@ -42,10 +42,6 @@ class Exemplar {
         this.emprestimos = emprestimos;
     }
     
-    public Emprestimo getEmprestimo_atual() {
-        return emprestimo_atual;
-    }
-
     public String getStatus() {
         return this.status.getDescricao();
     }

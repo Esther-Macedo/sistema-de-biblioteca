@@ -5,7 +5,8 @@ public class DevolverComando implements Comando {
         Repositorio repositorio = Repositorio.obterInstancia();
 
         Usuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
-		
-		Livro livro = repositorio.obterLivroPorCodigo(carregadorParametros.getParametroDois());
+
+        usuario.devolver(carregadorParametros.getParametroDois());
+        
     }
 }

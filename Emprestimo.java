@@ -23,6 +23,13 @@ public class Emprestimo {
 
     }
 
+
+    public void devolver(){
+        this.setCorrente(false);
+        this.setDataDevolucao(LocalDateTime.now());
+        this.exemplar.setStatus(Status.DISPONIVEL) ;
+
+    }
     public String getTitulo() {
         return titulo;
     }
