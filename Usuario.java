@@ -81,4 +81,14 @@ public class Usuario {
     public void setRegraEmprestimo(IRegraEmprestimo regraEmprestimo) {
         this.regraEmprestimo = regraEmprestimo;
     }
+
+    public boolean buscarLivroEmprestadoPorCodigo(String codigo) {
+        for (Emprestimo emprestimo : this.emprestimos) {
+            if (emprestimo.livroEstaNoEmprestimo(codigo)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

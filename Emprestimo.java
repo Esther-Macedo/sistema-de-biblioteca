@@ -105,5 +105,9 @@ public class Emprestimo {
      public void setCorrente(boolean isCorrente) {
          this.isCorrente = isCorrente;
      }
-    
+     
+     public boolean livroEstaNoEmprestimo(String codigo) {
+        return this.exemplar.getCodigo_exemplar().equals(codigo);
+     }
+
 }
