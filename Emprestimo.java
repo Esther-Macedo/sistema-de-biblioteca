@@ -86,28 +86,29 @@ public class Emprestimo {
         return dataDevolucaoPrevista.format(formatter);
     }
 
-     public void setDataDevolucao(LocalDateTime dataDevolucao) {
-         this.dataDevolucao = dataDevolucao;
-     }
+    public void setDataDevolucao(LocalDateTime dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
+    }
 
-     public LocalDateTime getDataDevolucaoPrevista() {
-         return dataDevolucaoPrevista;
-     }
+    public LocalDateTime getDataDevolucaoPrevista() {
+        return dataDevolucaoPrevista;
+    }
 
-     public void setDataDevolucaoPrevista(LocalDateTime dataDevolucaoPrevista) {
-         this.dataDevolucaoPrevista = dataDevolucaoPrevista;
-     }
+    public void setDataDevolucaoPrevista(LocalDateTime dataDevolucaoPrevista) {
+        this.dataDevolucaoPrevista = dataDevolucaoPrevista;
+    }
 
-     public boolean isCorrente() {
-         return isCorrente;
-     }
+    public boolean isCorrente() {
+        return isCorrente;
+    }
 
-     public void setCorrente(boolean isCorrente) {
-         this.isCorrente = isCorrente;
-     }
-     
-     public boolean livroEstaNoEmprestimo(String codigo) {
+    public void setCorrente(boolean isCorrente) {
+        this.isCorrente = isCorrente;
+    }
+    
+    public boolean livroEstaEmprestado(String codigo) {
         return this.exemplar.getCodigo_exemplar().equals(codigo);
-     }
+    }
+    
 
 }
