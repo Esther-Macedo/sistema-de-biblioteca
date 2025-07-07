@@ -4,7 +4,6 @@ public class Usuario {
     String codigo;
     String nome;
     int tempoEmprestimo;
-    int limiteLivros;
     ArrayList<Emprestimo> emprestimos = new ArrayList<>();
     ArrayList<Reserva> reservas = new ArrayList<>();
     Boolean devendo;
@@ -75,14 +74,6 @@ public class Usuario {
         this.devendo = devendo;
     }
 
-    public int getLimiteLivros() {
-        return limiteLivros;
-    }
-
-    public void setLimiteLivros(int limiteLivros) {
-        this.limiteLivros = limiteLivros;
-    }
-
     public IRegraEmprestimo getRegraEmprestimo() {
         return regraEmprestimo;
     }
@@ -90,4 +81,24 @@ public class Usuario {
     public void setRegraEmprestimo(IRegraEmprestimo regraEmprestimo) {
         this.regraEmprestimo = regraEmprestimo;
     }
+
+    public boolean temLivroReservado(String codigo) {
+        for (Reserva reserva : this.reservas) {
+            if (reserva.livroEstaNaReserva(codigo)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean temLivroEmprestado(String codigo) {
+        for (Emprestimo emprestimo : this.emprestimos) {
+            if (emprestimo.livroEstaEmprestado(codigo)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }

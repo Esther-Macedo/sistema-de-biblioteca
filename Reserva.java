@@ -5,7 +5,6 @@ public class Reserva {
     public Reserva(Usuario usuario, Livro livro){
         this.usuario = usuario;
         this.livro = livro;
-
     }
 
     public Usuario getUsuario() {
@@ -22,6 +21,10 @@ public class Reserva {
 
     public void setLivro(Livro livro) {
         this.livro = livro;
+    }
+
+    public boolean livroEstaNaReserva(String codigo) {
+        return this.livro.getCodigo().equals(codigo);
     }
     
 }
