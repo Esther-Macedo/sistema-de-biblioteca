@@ -1,6 +1,6 @@
 public interface ISubject {
-    public void registrarObservadores();
-    public void removerObservadores();
+    public void registrarObservadores(IObservadorReserva observador);
+    public void removerObservadores(IObservadorReserva observador);
 
     public void notificarObservadores();
 }
