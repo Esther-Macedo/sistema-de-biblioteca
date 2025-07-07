@@ -8,7 +8,7 @@ class Livro implements ISubject {
     ArrayList<String> autores = new ArrayList<>();
     ArrayList<Exemplar> exemplares = new ArrayList<>();
     ArrayList<Reserva> reservas = new ArrayList<>();
-    ArrayList <IObservadorReserva> observadores = new ArrayList<>();
+    ArrayList<IObservadorReserva> observadores = new ArrayList<>();
     int ano;
 
     public Livro (String codigo, String titulo, String editora, String edição, String[] autores, int ano ){
@@ -20,10 +20,29 @@ class Livro implements ISubject {
 
         for (String autor : autores ){
             this.autores.add(autor);
-        }
-
-        
+        }     
     }
+
+    public void registrarObservadores(IObservadorReserva observador){
+        observadores.add(observador);
+    }
+
+    public void removerObservadores(IObservadorReserva observador){
+        int i = observadores.indexOf(observador);
+        if(i>0){
+            observadores.remove(i);
+        }
+    }
+
+    public void  notificarObservadores(){
+        
+        if (this.reservas.size()>=2){
+            for (IObservadorReserva observador : observadores){
+                observador.update();
+            }
+        }
+    }
+    //getters & setters
 
     public String getCodigo() {
         return codigo;
