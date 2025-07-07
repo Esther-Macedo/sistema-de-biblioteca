@@ -4,7 +4,7 @@ class Exemplar {
     String codigo_livro;
     String codigo_exemplar;
     Status status;
-    ArrayList<Emprestimo> emprestimos= new ArrayList<>();
+    ArrayList<Emprestimo> emprestimos = new ArrayList<>();
     Emprestimo emprestimo_atual;
     
     public Exemplar(String codigo_livro, String codigo_exemplar, Status status){
@@ -53,5 +53,23 @@ class Exemplar {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+     public String toString(){
+        String nomesEmprestimos = "Sem empréstimos";
+        if (this.getStatus().equals("Emprestado")) {
+            for (Emprestimo emprestimo : emprestimos) {
+                if(emprestimo.isCorrente) {
+                    nomesEmprestimos += emprestimo.toString() + "\n";
+                }
+            }
+        }
+        return String.format("Código do exemplar: %s \n + Status do exemplar: %s \n, Empréstimos: %s",this.getCodigo_livro(), this.getStatus(), nomesEmprestimos);
+            
+    }
+
+    public void exibir(){
+        System.out.println(this.toString());
+    }
+    
 
 }

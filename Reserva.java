@@ -16,6 +16,10 @@ public class Reserva {
         return usuario;
     }
 
+    public String getNomeUsuario() {
+        return usuario.getNome();
+    }
+
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
