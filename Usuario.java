@@ -1,19 +1,17 @@
 import java.util.ArrayList;
 
-public class Usuario {
-    String codigo;
-    String nome;
-    int tempoEmprestimo;
-    ArrayList<Emprestimo> emprestimos = new ArrayList<>();
-    ArrayList<Reserva> reservas = new ArrayList<>();
-    Boolean devendo;
-    IRegraEmprestimo regraEmprestimo;
+public abstract class Usuario {
+    private String codigo;
+    private String nome;
+    private int tempoEmprestimo;
+    private ArrayList<Emprestimo> emprestimos = new ArrayList<>();
+    private ArrayList<Reserva> reservas = new ArrayList<>();
+    private Boolean devendo;
 
-    public Usuario(String codigo,String nome, IRegraEmprestimo regraEmprestimo) {
+    public Usuario(String codigo,String nome) {
         this.codigo = codigo;
         this.nome = nome;
         this.devendo = false;
-        this.regraEmprestimo = regraEmprestimo;
     }
 
     public String getCodigo() {
@@ -74,14 +72,6 @@ public class Usuario {
         this.devendo = devendo;
     }
 
-    public IRegraEmprestimo getRegraEmprestimo() {
-        return regraEmprestimo;
-    }
-
-    public void setRegraEmprestimo(IRegraEmprestimo regraEmprestimo) {
-        this.regraEmprestimo = regraEmprestimo;
-    }
-
     public boolean temLivroReservado(String codigo) {
         for (Reserva reserva : this.reservas) {
             if (reserva.livroEstaNaReserva(codigo)) {
@@ -99,6 +89,8 @@ public class Usuario {
         }
         return false;
     }
+
+    public abstract IRegraEmprestimo criadorEmprestimo();
 
 
 }

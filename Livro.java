@@ -99,5 +99,17 @@ class Livro implements ISubject {
     public int getQtdExemplaresDisponiveis() {
         return this.exemplares.size();
     }
+
+    public Exemplar buscarAtualizarExemplar() {
+        if (exemplares.size() > 0) {
+            for (Exemplar exemplar : exemplares) {
+                if(exemplar.getStatus().equals("Disponivel")) {
+                    exemplar.setStatus(Status.EMPRESTADO);
+                    return exemplar;
+                }
+            }
+        }
+        return null;
+    }
     
 }

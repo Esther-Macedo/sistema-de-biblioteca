@@ -1,3 +1,3 @@
 public interface IRegraEmprestimo {
-    public boolean podeEmprestar(Usuario usuario, Livro livro);
+    public Emprestimo emprestar(Usuario usuario, Livro livro);
 }
