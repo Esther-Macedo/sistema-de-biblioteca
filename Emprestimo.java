@@ -9,6 +9,7 @@ public class Emprestimo {
     LocalDateTime dataEmprestimo;
     LocalDateTime dataDevolucao;
     LocalDateTime dataDevolucaoPrevista;
+    boolean isCorrente;
     
     public Emprestimo(String titulo, Usuario usuario, Exemplar exemplar){
 
@@ -18,6 +19,7 @@ public class Emprestimo {
         this.dataEmprestimo = LocalDateTime.now();
         int tempoEmprestimo = usuario.getTempoEmprestimo();
         this.dataDevolucaoPrevista = dataEmprestimo.plusDays(tempoEmprestimo);
+        this.isCorrente = true;
 
     }
 
@@ -83,5 +85,25 @@ public class Emprestimo {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return dataDevolucaoPrevista.format(formatter);
     }
+
+     public void setDataDevolucao(LocalDateTime dataDevolucao) {
+         this.dataDevolucao = dataDevolucao;
+     }
+
+     public LocalDateTime getDataDevolucaoPrevista() {
+         return dataDevolucaoPrevista;
+     }
+
+     public void setDataDevolucaoPrevista(LocalDateTime dataDevolucaoPrevista) {
+         this.dataDevolucaoPrevista = dataDevolucaoPrevista;
+     }
+
+     public boolean isCorrente() {
+         return isCorrente;
+     }
+
+     public void setCorrente(boolean isCorrente) {
+         this.isCorrente = isCorrente;
+     }
     
 }
