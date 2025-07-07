@@ -53,4 +53,8 @@ class Exemplar {
         return this.status.getDescricao();
     }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
 }

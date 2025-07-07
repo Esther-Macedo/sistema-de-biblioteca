@@ -7,21 +7,22 @@ public class RegraAluno implements IRegraEmprestimo {
     
 
     @Override
-    public boolean podeEmprestar(Usuario usuario, Livro livro) {
+    public Emprestimo emprestar(Usuario usuario, Livro livro) {
         if (usuario.isDevendo()) {
-            return false;
+            return null;
 
         } else if (usuario.getQtdEmprestimosAbertos() >= limiteLivros){
-            return false;
+            return null;
 
         } else if (livro.getQtdReservas() >= livro.getQtdExemplaresDisponiveis() && !(usuario.temLivroReservado(livro.getCodigo()))) {
-            return false;
+            return null;
 
         } else if (usuario.temLivroEmprestado(livro.getCodigo())) {
-            return false;
+            return null;
 
         }
-        return true;
+
+        return new Emprestimo(livro.getTitulo(), usuario, livro.buscarAtualizarExemplar());
 
     } 
 }

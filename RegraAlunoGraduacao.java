@@ -1,7 +1,7 @@
 public class RegraAlunoGraduacao implements IRegraEmprestimo {
 
     @Override
-    public boolean podeEmprestar(Usuario usuario, Livro livro) {
+    public IRegraEmprestimo emprestar(Usuario usuario, Livro livro) {
         if (usuario.isDevendo()) {
             return false;
 
