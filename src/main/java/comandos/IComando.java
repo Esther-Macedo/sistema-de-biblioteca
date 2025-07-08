@@ -1,4 +1,4 @@
-package interfaces;
+package comandos;
 
 import executores.CarregadorParametros;
 
