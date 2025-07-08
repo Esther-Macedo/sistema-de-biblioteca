@@ -3,7 +3,7 @@ package comandos;
 import base.Repositorio;
 import executores.CarregadorParametros;
 import interfaces.IComando;
-import usuarios.Usuario;
+import usuarios.IUsuario;
 
 public class ConsultarNotificacaoComando implements IComando {
 
@@ -11,9 +11,11 @@ public class ConsultarNotificacaoComando implements IComando {
 	public void executar(CarregadorParametros carregadorParametros) {
 		Repositorio repositorio = Repositorio.obterInstancia();
 		
-        Usuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());	
+        IUsuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());	
 
 		
+		
+
 	}
 
 }

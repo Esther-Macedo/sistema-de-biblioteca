@@ -27,6 +27,10 @@ public class Livro implements ISubject {
         }     
     }
 
+    public void adicionarReserva(Reserva reserva) {
+        this.reservas.add(reserva);
+    }
+
     public void registrarObservadores(IObservadorReserva observador){
         observadores.add(observador);
     }
@@ -46,6 +50,7 @@ public class Livro implements ISubject {
             }
         }
     }
+    
     //getters & setters
 
     public String getCodigo() {

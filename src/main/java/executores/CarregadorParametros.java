@@ -14,7 +14,7 @@ public class CarregadorParametros {
 		this.parametroUm = parametroUm;
 		this.parametroDois = parametroDois;
 	}
-	
+
 	public String getParametroUm() {
 		return parametroUm;
 	}
