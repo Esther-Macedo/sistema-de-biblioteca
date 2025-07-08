@@ -1,7 +1,5 @@
 package interfaces;
 
-import usuarios.IUsuario;
-
-public interface IObservadorReserva extends IUsuario {
+public interface IObservadorReserva {
     public void update();
 }

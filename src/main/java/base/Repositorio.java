@@ -37,7 +37,7 @@ public class Repositorio {
 		return null;
 	}
 
-	private void memoria(){
+	public void memoria(){
 		String[] autores = {"Rick Riordan"};
 		livros.add(new Livro("123", "Percy Jackson", "Intrinseca", "2ª",autores, 1999));
 	}

@@ -7,12 +7,12 @@ public class Sistema {
    
     public static void main (String[] args){
         Repositorio repo = Repositorio.obterInstancia();
-        InterfaceUsuario interface = InterfaceUsuario.obterInstancia();
+        InterfaceUsuario interfaceUsuario = InterfaceUsuario.obterInstancia();
         boolean running = true;
         
         while(running){
             System.out.println("oi o sistema está rodando");
-            interface.menu();
+            interfaceUsuario.menu();
             running = false;
         }
     }
