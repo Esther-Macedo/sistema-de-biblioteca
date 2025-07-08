@@ -1,8 +1,8 @@
 package regras;
 
 import base.Livro;
-import usuarios.Usuario;
+import usuarios.IUsuario;
 
 public interface IRegraEmprestimo {
-    public boolean podeEmprestar(Usuario usuario, Livro livro);
+    public boolean podeEmprestar(IUsuario usuario, Livro livro);
 }
