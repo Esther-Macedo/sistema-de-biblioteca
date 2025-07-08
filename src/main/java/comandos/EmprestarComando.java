@@ -1,10 +1,11 @@
 package comandos;
 
 import base.Repositorio;
+import base.Exemplar;
 import base.Livro;
 import executores.CarregadorParametros;
-import executores.GerenciadorEmprestimos;
 import interfaces.IComando;
+import regras.IRegraEmprestimo;
 import usuarios.IUsuario;
 
 public class EmprestarComando implements IComando {
@@ -16,8 +17,11 @@ public class EmprestarComando implements IComando {
 		
 		Livro livro = repositorio.obterLivroPorCodigo(carregadorParametros.getParametroDois());
 		
-		GerenciadorEmprestimos.emprestar(usuario, livro);		
-		
+		if (usuario.podeEmprestar(livro)) {
+            Exemplar exemplar = livro.buscarAtualizarExemplar();
+			String titulo = livro.getTitulo();
+			usuario.emprestar(titulo, exemplar);
+        }	
 	}
 
 }

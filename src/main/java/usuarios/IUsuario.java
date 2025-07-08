@@ -3,6 +3,8 @@ package usuarios;
 import java.util.ArrayList;
 
 import base.Emprestimo;
+import base.Exemplar;
+import base.Livro;
 import base.Reserva;
 import regras.IRegraEmprestimo;
 
@@ -11,6 +13,10 @@ public interface IUsuario {
     boolean temLivroEmprestado(String codigo);
     
     void devolver(String codigoLivro);
+    
+    void reservar(Livro livro);
+
+    void emprestar(String titulo, Exemplar exemplar);
     
     void exibirEmprestimos();
     
@@ -45,6 +51,7 @@ public interface IUsuario {
     void setDevendo(Boolean devendo);
     
     boolean temLivroReservado(String codigo);
+
+    boolean podeEmprestar(Livro livro);
     
-    IRegraEmprestimo regraEmprestimo();
 }

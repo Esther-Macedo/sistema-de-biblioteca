@@ -141,7 +141,7 @@ public class Livro implements ISubject {
         }
 
 
-        String dadosFormatados = String.format("Titulo: %s \n Quantidade de Reservas: %i \n Nomes das reservas: %s \n Emprestimos: %s \n", 
+        String dadosFormatados = String.format("Titulo: %s \n Quantidade de Reservas: %s \n Nomes das reservas: %s \n Emprestimos: %s \n", 
                                                 this.getTitulo(), qtdReservas, nomesReservas, exemplaresEmprestados);
         return dadosFormatados;
     }

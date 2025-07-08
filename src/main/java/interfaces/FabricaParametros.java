@@ -1,6 +1,6 @@
 package interfaces;
 
-import java.util.Scanner;
+
 import executores.CarregadorParametros;
 public class FabricaParametros{
     

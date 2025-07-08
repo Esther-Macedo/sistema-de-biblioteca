@@ -3,6 +3,8 @@ package usuarios;
 import java.util.ArrayList;
 
 import base.Emprestimo;
+import base.Exemplar;
+import base.Livro;
 import base.Reserva;
 import regras.IRegraEmprestimo;
 
@@ -13,8 +15,9 @@ public abstract class Usuario implements IUsuario {
     private ArrayList<Emprestimo> emprestimos = new ArrayList<>();
     private ArrayList<Reserva> reservas = new ArrayList<>();
     private Boolean devendo;
+    private IRegraEmprestimo regraEmprestimo;
 
-    public Usuario(String codigo,String nome) {
+    public Usuario(String codigo,String nome, IRegraEmprestimo regraEmprestimo) {
         this.codigo = codigo;
         this.nome = nome;
         this.devendo = false;
@@ -36,8 +39,23 @@ public abstract class Usuario implements IUsuario {
             }
         }
     }
+
+    public void reservar(Livro livro) {
+        Reserva reserva = new Reserva(this, livro);
+        livro.adicionarReserva(reserva);
+    }
+
+    public void emprestar(String titulo, Exemplar exemplar) {
+        Emprestimo emprestimo = new Emprestimo(titulo, this , exemplar);
+        this.adicionarEmprestimo(emprestimo);
+    }
+
+    public boolean podeEmprestar(Livro livro) {
+        return this.regraEmprestimo.podeEmprestar(this, livro);
+    }
+
+
     public void exibirEmprestimos(){
-        //Essa print teria que ser na classe de mensságens
         System.out.println("Empréstimos");
         for (Emprestimo emprestimo : emprestimos){
             emprestimo.exibir();;
@@ -82,6 +100,10 @@ public abstract class Usuario implements IUsuario {
     public void setEmprestimos(ArrayList<Emprestimo> emprestimos) {
         this.emprestimos = emprestimos;
     }
+    
+    public IRegraEmprestimo getRegraEmprestimo() {
+        return this.regraEmprestimo;
+    }
 
     public int getQtdEmprestimosAbertos() {
         int emprestimos_abertos = 0;
@@ -122,7 +144,6 @@ public abstract class Usuario implements IUsuario {
         return false;
     }
 
-    public abstract IRegraEmprestimo regraEmprestimo();
-
-
+  
+    
 }

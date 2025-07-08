@@ -5,7 +5,6 @@ import base.Livro;
 import executores.CarregadorParametros;
 import interfaces.IComando;
 import usuarios.IUsuario;
-import executores.GerenciadorReservas;
 
 public class ReservarComando implements IComando {
 	public void executar(CarregadorParametros carregadorParametros) {
@@ -15,7 +14,7 @@ public class ReservarComando implements IComando {
 		
 		Livro livro = repositorio.obterLivroPorCodigo(carregadorParametros.getParametroDois());
 
-		GerenciadorReservas.reservar(usuario,livro);
+		usuario.reservar(livro);
 		
 	}
 

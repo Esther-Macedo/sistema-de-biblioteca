@@ -2,6 +2,7 @@ package base;
 import java.util.ArrayList;
 import java.util.List;
 
+import interfaces.IObservadorReserva;
 import usuarios.IUsuario;
 
 public class Repositorio {
