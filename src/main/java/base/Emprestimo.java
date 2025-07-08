@@ -3,19 +3,19 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import helpers.Status;
-import usuarios.Usuario;
+import usuarios.IUsuario;
 
 public class Emprestimo {
 
     String titulo;
-    Usuario usuario;
+    IUsuario usuario;
     Exemplar exemplar;
     LocalDateTime dataEmprestimo;
     LocalDateTime dataDevolucao;
     LocalDateTime dataDevolucaoPrevista;
     boolean isCorrente;
     
-    public Emprestimo(String titulo, Usuario usuario, Exemplar exemplar){
+    public Emprestimo(String titulo, IUsuario usuario, Exemplar exemplar){
 
         this.titulo = titulo;
         this.usuario = usuario;
@@ -42,11 +42,11 @@ public class Emprestimo {
         this.titulo = titulo;
     }
 
-    public Usuario getUsuario() {
+    public IUsuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(IUsuario usuario) {
         this.usuario = usuario;
     }
 

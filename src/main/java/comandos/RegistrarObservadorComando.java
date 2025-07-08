@@ -5,6 +5,8 @@ import base.Livro;
 import executores.CarregadorParametros;
 import interfaces.IComando;
 import usuarios.Usuario;
+import usuarios.IUsuario;
+import interfaces.IObservadorReserva;
 
 public class RegistrarObservadorComando implements IComando {
     
@@ -12,11 +14,9 @@ public class RegistrarObservadorComando implements IComando {
 	public void executar(CarregadorParametros carregadorParametros) {
 		
         Repositorio repositorio = Repositorio.obterInstancia();
-		Usuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
-		
-        Livro livro = repositorio.obterLivroPorCodigo(carregadorParametros.getParametroDois());
-
+		IUsuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
+ 
         
 		
 	}
-}
+}  
