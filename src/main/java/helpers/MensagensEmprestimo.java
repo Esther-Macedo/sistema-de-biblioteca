@@ -1,4 +1,7 @@
 package helpers;
+
+import usuarios.IUsuario;
+
 public class MensagensEmprestimo{
 
     public static void MensagemEmprestimoSemExemplar(){
@@ -14,15 +17,16 @@ public class MensagensEmprestimo{
     }
 
     public static void MensagemUsuarioEstaDevendo(){
-         System.out.println("Não foi possível realizar o emprestimo, pois o usuário está devendo a devoluções.");   
+         System.out.println("Não foi possível realizar o emprestimo, pois o usuário está devendo devoluções.");   
     }
 
     public static void MensagemSemReserva(){
          System.out.println("Não foi possível realizar o emprestimo, pois o usuário não tem reserva e já há mais reservas do que exemplares disponíveis.");   
     }
 
-    public static void Mensagem(){
-         System.out.println("Não foi possível realizar o emprestimo, pois o usuário não tem reserva e já há mais reservas do que exemplares disponíveis.");   
+    public static void MensagemSucesso(IUsuario usuario){
+         System.out.printf("Empréstimo do usuário %s concluído!", usuario.getNome());   
     }
+
 
 }

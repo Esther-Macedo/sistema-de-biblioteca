@@ -21,7 +21,7 @@ public class Livro implements ISubject {
         this.editora = editora;
         this.edição = edição;
         this.ano = ano;
-
+        
         for (String autor : autores ){
             this.autores.add(autor);
         }     
@@ -29,6 +29,10 @@ public class Livro implements ISubject {
 
     public void adicionarReserva(Reserva reserva) {
         this.reservas.add(reserva);
+    }
+    
+    public void adicionarExemplar(Exemplar exemplar) {
+        this.exemplares.add(exemplar);
     }
 
     public void registrarObservadores(IObservadorReserva observador){
@@ -52,7 +56,6 @@ public class Livro implements ISubject {
     }
     
     //getters & setters
-
     public String getCodigo() {
         return codigo;
     }

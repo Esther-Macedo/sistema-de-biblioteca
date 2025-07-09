@@ -12,7 +12,7 @@ public class Sistema {
         
         while(running){
             repo.carregarMemoria();
-            System.out.println("oi o sistema está rodando");
+            System.out.println("Oi, o sistema está rodando!");
 
             String comando = interfaceUsuario.menu();
             if(comando.equals("sai")){
