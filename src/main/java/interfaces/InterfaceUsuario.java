@@ -13,6 +13,7 @@ public class InterfaceUsuario {
 	private static InterfaceUsuario instancia;
 
 	private static HashMap<String,IComando> comandos = new HashMap<String,IComando>();
+	
 	public void executarComando(String strComando, CarregadorParametros parametros) {
 		IComando comando = comandos.get(strComando);
 		comando.executar(parametros);
@@ -52,10 +53,14 @@ public class InterfaceUsuario {
 		return dadosEntrada;	
 	}
 
-	public void menu(){
+	public String menu(){
 		String[] dados = obterdados();
-		CarregadorParametros icarly = FabricaParametros.criarCarregadorParametros(dados); 
-		executarComando(dados[0], icarly);
+		String comando = dados[0];
+		CarregadorParametros carregadorParametros = FabricaParametros.criarCarregadorParametros(dados); 
+		executarComando(comando, carregadorParametros);
+		return dados[0];
 	}
+
+
 
 }

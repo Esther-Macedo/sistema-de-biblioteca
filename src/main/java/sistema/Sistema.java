@@ -11,9 +11,13 @@ public class Sistema {
         boolean running = true;
         
         while(running){
+            repo.carregarMemoria();
             System.out.println("oi o sistema está rodando");
-            interfaceUsuario.menu();
-            running = false;
+
+            String comando = interfaceUsuario.menu();
+            if(comando.equals("sai")){
+                running = false;
+            }
         }
     }
 

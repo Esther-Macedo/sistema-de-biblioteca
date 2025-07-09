@@ -8,6 +8,9 @@ public class Exemplar {
     String codigo_exemplar;
     Status status;
     ArrayList<Emprestimo> emprestimos= new ArrayList<>();
+
+    // Substituir por livro
+    // Substituir por 
     
     
     public Exemplar(String codigo_livro, String codigo_exemplar, Status status){
