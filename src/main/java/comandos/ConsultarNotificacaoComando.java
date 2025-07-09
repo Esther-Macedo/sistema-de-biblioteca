@@ -1,11 +1,9 @@
 package comandos;
 
 import base.Repositorio;
-import executores.CarregadorParametros;
-import interfaces.IComando;
+import helpers.CarregadorParametros;
 import interfaces.IObservadorReserva;
 import usuarios.IUsuario;
-import interfaces.ISubject;
 
 public class ConsultarNotificacaoComando implements IComando {
 
@@ -15,9 +13,10 @@ public class ConsultarNotificacaoComando implements IComando {
 		
         IUsuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
 
-		ISubject livro = repositorio.obterLivroPorCodigo(carregadorParametros.getParametroDois());
-
-		livro.registrarObservadores(usuario);
+		if (usuario instanceof IObservadorReserva) {
+			IObservadorReserva observador = (IObservadorReserva) usuario;
+			observador.exibirNotificacoes();
+		}
 		
 		
 

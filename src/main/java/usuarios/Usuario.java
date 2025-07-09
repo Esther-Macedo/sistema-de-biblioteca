@@ -45,9 +45,12 @@ public abstract class Usuario implements IUsuario {
         livro.adicionarReserva(reserva);
     }
 
-    public void emprestar(String titulo, Exemplar exemplar) {
-        Emprestimo emprestimo = new Emprestimo(titulo, this , exemplar);
+    
+    public void emprestar(Exemplar exemplar) {
+        Emprestimo emprestimo = new Emprestimo(this , exemplar);
+        
         this.adicionarEmprestimo(emprestimo);
+        exemplar.setEmprestimoCorrente(emprestimo);
     }
 
     public boolean podeEmprestar(Livro livro) {

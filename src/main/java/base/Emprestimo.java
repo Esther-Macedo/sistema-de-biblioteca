@@ -15,9 +15,9 @@ public class Emprestimo {
     LocalDateTime dataDevolucaoPrevista;
     boolean isCorrente;
     
-    public Emprestimo(String titulo, IUsuario usuario, Exemplar exemplar){
+    public Emprestimo(IUsuario usuario, Exemplar exemplar){
 
-        this.titulo = titulo;
+        this.titulo = exemplar.getCodigo();
         this.usuario = usuario;
         this.exemplar = exemplar;
         this.dataEmprestimo = LocalDateTime.now();
@@ -118,7 +118,7 @@ public class Emprestimo {
     }
     
     public boolean livroEstaEmprestado(String codigo) {
-        return this.exemplar.getCodigo_exemplar().equals(codigo);
+        return this.exemplar.getCodigoLivro().equals(codigo);
     }
     
     public String toString(){

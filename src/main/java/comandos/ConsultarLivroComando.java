@@ -2,8 +2,7 @@ package comandos;
 
 import base.Livro;
 import base.Repositorio;
-import executores.CarregadorParametros;
-import interfaces.IComando;
+import helpers.CarregadorParametros;
 
 public class ConsultarLivroComando implements IComando {
 

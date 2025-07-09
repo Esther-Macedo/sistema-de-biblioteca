@@ -6,7 +6,6 @@ import base.Emprestimo;
 import base.Exemplar;
 import base.Livro;
 import base.Reserva;
-import regras.IRegraEmprestimo;
 
 public interface IUsuario {
     
@@ -16,7 +15,7 @@ public interface IUsuario {
     
     void reservar(Livro livro);
 
-    void emprestar(String titulo, Exemplar exemplar);
+    void emprestar(Exemplar exemplar);
     
     void exibirEmprestimos();
     

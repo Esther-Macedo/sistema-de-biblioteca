@@ -2,7 +2,6 @@ package usuarios;
 
 import interfaces.IObservadorReserva;
 import regras.IRegraEmprestimo;
-import regras.RegraProfessor;
 
 public class Professor extends Usuario implements IObservadorReserva {
     private int contadorNotificacoes = 0;
@@ -16,12 +15,10 @@ public class Professor extends Usuario implements IObservadorReserva {
         this.contadorNotificacoes++;
     }
     
-    @Override
     public int getNotificacoes() {
         return this.contadorNotificacoes;
     }
     
-    @Override
     public void exibirNotificacoes(){
         System.out.println(getNotificacoes());
     }    

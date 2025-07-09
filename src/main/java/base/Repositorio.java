@@ -2,7 +2,6 @@ package base;
 import java.util.ArrayList;
 import java.util.List;
 
-import interfaces.IObservadorReserva;
 import usuarios.IUsuario;
 
 public class Repositorio {
@@ -38,7 +37,7 @@ public class Repositorio {
 		return null;
 	}
 
-	public void memoria(){
+	public void carregarMemoria(){
 		String[] autores = {"Rick Riordan"};
 		livros.add(new Livro("123", "Percy Jackson", "Intrinseca", "2ª",autores, 1999));
 	}
