@@ -1,51 +1,47 @@
 package base;
-import java.util.ArrayList;
 
 import helpers.Status;
 
 public class Exemplar {
-    String codigo_livro;
-    String codigo_exemplar;
+    String codigo;
+    Livro livro;
     Status status;
-    ArrayList<Emprestimo> emprestimos= new ArrayList<>();
-
-    // Substituir por livro
-    // Substituir por 
+    Emprestimo emprestimoCorrente;
     
     
-    public Exemplar(String codigo_livro, String codigo_exemplar, Status status){
-        this.codigo_exemplar = codigo_exemplar;
-        this.codigo_livro = codigo_livro;
+    public Exemplar(String codigo, Livro livro){
+        this.codigo = codigo;
+        this.livro = livro;
+        this.status = Status.DISPONIVEL;
+        this.emprestimoCorrente = null;
     }
 
-    //adicionar um emprestimo
-    public void adicionarEmprestimo(Emprestimo emprestimo){
-        this.emprestimos.add(emprestimo);
-    }
-    
-    //getters e setters
-    public String getCodigo_livro() {
-        return codigo_livro;
+    public Emprestimo getEmprestimoCorrente() {
+        return emprestimoCorrente;
     }
 
-    public void setCodigo_livro(String codigo_livro) {
-        this.codigo_livro = codigo_livro;
+    public void setEmprestimoCorrente(Emprestimo emprestimoCorrente) {
+        this.emprestimoCorrente = emprestimoCorrente;
     }
 
-    public String getCodigo_exemplar() {
-        return codigo_exemplar;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setCodigo_exemplar(String codigo_exemplar) {
-        this.codigo_exemplar = codigo_exemplar;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
-    public ArrayList<Emprestimo> getEmprestimos() {
-        return emprestimos;
+    public String getCodigoLivro() {
+        return this.getLivro().getCodigo();
     }
 
-    public void setEmprestimos(ArrayList<Emprestimo> emprestimos) {
-        this.emprestimos = emprestimos;
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public void setLivro(Livro livro) {
+        this.livro = livro;
     }
     
     public String getStatus() {
@@ -56,16 +52,17 @@ public class Exemplar {
         this.status = status;
     }
 
-     public String toString(){
-        String nomesEmprestimos = "Sem empréstimos";
-        if (this.getStatus().equals("Emprestado")) {
-            for (Emprestimo emprestimo : emprestimos) {
-                if(emprestimo.isCorrente) {
-                    nomesEmprestimos += emprestimo.toString() + "\n";
-                }
-            }
+    public String getInfoEmprestimoCorrente() {
+        String emprestimoString = "Nenhum empréstimo corrente.";
+
+        if (this.getEmprestimoCorrente() != null) {
+            emprestimoString = this.getEmprestimoCorrente().toString();
         }
-        return String.format("Código do exemplar: %s \n + Status do exemplar: %s \n, Empréstimos: %s",this.getCodigo_livro(), this.getStatus(), nomesEmprestimos);
+        return emprestimoString;
+    }
+
+     public String toString(){
+        return String.format("Código do exemplar: %s \n + Status do exemplar: %s \n, Empréstimo atual: %s",this.getCodigo(), this.getStatus(), this.getInfoEmprestimoCorrente());
             
     }
 
