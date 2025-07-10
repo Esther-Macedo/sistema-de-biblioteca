@@ -10,9 +10,10 @@ public class Sistema {
         InterfaceUsuario interfaceUsuario = InterfaceUsuario.obterInstancia();
         boolean running = true;
         
+        repo.carregarMemoria();
+        System.out.println("Oi, o sistema está rodando!");
+        
         while(running){
-            repo.carregarMemoria();
-            System.out.println("Oi, o sistema está rodando!");
 
             String comando = interfaceUsuario.menu();
             if(comando.equals("sai")){
