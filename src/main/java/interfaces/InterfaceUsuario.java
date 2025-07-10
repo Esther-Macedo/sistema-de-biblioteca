@@ -42,21 +42,35 @@ public class InterfaceUsuario {
 	//M�todos abaixo para fazer a interface com usu�rio via linha de commando
 	//...
 	
-	public String[] obterdados(){
+	public String obterdados(){
 		//esse scanner tem que estar dentro de uma fábrica
 		Scanner scanner = new Scanner(System.in);
 		String entrada = scanner.nextLine();
-		String[] dadosEntrada = entrada.split(" ");
+		
 		scanner.close();
-		return dadosEntrada;	
+		return entrada;	
 	}
 
 	public String menu(){
-		String[] dados = obterdados();
-		String comando = dados[0];
-		CarregadorParametros carregadorParametros = FabricaParametros.criarCarregadorParametros(dados); 
-		executarComando(comando, carregadorParametros);
-		return dados[0];
+		String entrada = obterdados();
+		if(entrada.length()==0){
+			return "";
+		}
+
+		String[] dados = entrada.split(" ");
+		if (dados.length >= 1 && dados.length <=3){
+			
+			String comando = dados[0];
+			CarregadorParametros carregadorParametros = FabricaParametros.criarCarregadorParametros(dados); 
+			executarComando(comando, carregadorParametros);
+			return dados[0];
+		}else{
+			//mensagem por favor insira parametro válido ou 
+			return " ";
+			
+		}
+		
+		
 	}
 
 

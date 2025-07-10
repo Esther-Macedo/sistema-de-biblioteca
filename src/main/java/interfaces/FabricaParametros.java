@@ -8,10 +8,12 @@ public class FabricaParametros{
     public static CarregadorParametros  criarCarregadorParametros(String[] parametroStrings){
         
 
-        if (parametroStrings.length> 2){
+        if (parametroStrings.length == 3){
             return new CarregadorParametros(parametroStrings[1], parametroStrings[2]);
-        }else{
+        }else if(parametroStrings.length == 2){
             return new CarregadorParametros(parametroStrings[1]);
+        }else{
+            return new CarregadorParametros(parametroStrings[0]);
         }
         
     }
