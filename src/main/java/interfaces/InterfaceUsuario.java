@@ -3,10 +3,8 @@ package interfaces;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import base.Repositorio;
 import comandos.*;
-import executores.CarregadorParametros;
-import interfaces.IComando;
+import helpers.CarregadorParametros;
 
 
 public class InterfaceUsuario {

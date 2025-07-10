@@ -1,12 +1,9 @@
 package comandos;
 
 import base.Repositorio;
+import helpers.CarregadorParametros;
 import base.Livro;
-import executores.CarregadorParametros;
-import interfaces.IComando;
-import usuarios.Usuario;
 import usuarios.IUsuario;
-import interfaces.ISubject;
 import interfaces.IObservadorReserva;
 
 public class RegistrarObservadorComando implements IComando {

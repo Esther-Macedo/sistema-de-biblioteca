@@ -1,8 +1,7 @@
 package comandos;
 
 import base.Repositorio;
-import executores.CarregadorParametros;
-import interfaces.IComando;
+import helpers.CarregadorParametros;
 import usuarios.IUsuario;
 
 public class DevolverComando implements IComando {
