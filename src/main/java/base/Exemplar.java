@@ -33,7 +33,11 @@ public class Exemplar {
     }
 
     public String getCodigoLivro() {
-        return this.getLivro().getCodigo();
+        return this.livro.getCodigo();
+    }
+
+    public String getTituloLivro() {
+        return this.livro.getTitulo();
     }
 
     public Livro getLivro() {

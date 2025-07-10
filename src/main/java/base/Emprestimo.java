@@ -7,7 +7,6 @@ import usuarios.IUsuario;
 
 public class Emprestimo {
 
-    String titulo;
     IUsuario usuario;
     Exemplar exemplar;
     LocalDateTime dataEmprestimo;
@@ -17,7 +16,6 @@ public class Emprestimo {
     
     public Emprestimo(IUsuario usuario, Exemplar exemplar){
 
-        this.titulo = exemplar.getCodigo();
         this.usuario = usuario;
         this.exemplar = exemplar;
         this.dataEmprestimo = LocalDateTime.now();
@@ -34,13 +32,10 @@ public class Emprestimo {
         this.exemplar.setStatus(Status.DISPONIVEL) ;
 
     }
-    public String getTitulo() {
-        return titulo;
+    public String getTituloExemplar() {
+        return exemplar.getTituloLivro();
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
 
     public IUsuario getUsuario() {
         return usuario;
@@ -136,7 +131,7 @@ public class Emprestimo {
         }
 
         String dadosFormatados = String.format("Titulo: %s \n Data de Emprestimo: %s \n Status: %s \n %s %s \n", 
-                                                this.titulo, this.getDataEmprestimoToString(), status, devolucao, dataDevolucao);
+                                                this.getTituloExemplar(), this.getDataEmprestimoToString(), status, devolucao, dataDevolucao);
         return dadosFormatados;
     }
 
