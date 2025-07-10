@@ -1,7 +1,7 @@
 package interfaces;
 
 
-import executores.CarregadorParametros;
+import helpers.CarregadorParametros;
 public class FabricaParametros{
     
 

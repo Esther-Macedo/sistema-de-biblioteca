@@ -1,9 +1,8 @@
 package comandos;
 
 import base.Repositorio;
+import helpers.CarregadorParametros;
 import base.Livro;
-import executores.CarregadorParametros;
-import interfaces.IComando;
 import usuarios.IUsuario;
 
 public class ReservarComando implements IComando {
