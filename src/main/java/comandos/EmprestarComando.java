@@ -2,7 +2,7 @@ package comandos;
 
 import base.Repositorio;
 import helpers.CarregadorParametros;
-import helpers.MensagensEmprestimo;
+import helpers.MensagensServicos;
 import usuarios.Usuario;
 import base.Exemplar;
 import base.Livro;
@@ -20,7 +20,7 @@ public class EmprestarComando implements IComando {
 		if (usuario.podeEmprestar(livro)) {
 			Exemplar exemplar = livro.buscarAtualizarExemplar();
 			usuario.emprestar(exemplar);
-			MensagensEmprestimo.MensagemSucesso(usuario);
+			MensagensServicos.MensagemSucessoEmprestimo(usuario);
         }
 	}
 

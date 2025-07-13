@@ -122,7 +122,7 @@ public class Livro implements ISubject {
     }
 
 
-    // Isso aqui fere Responsabilidade Unica?
+    
     public Exemplar buscarAtualizarExemplar() {
         if (exemplares.size() > 0) {
             for (Exemplar exemplar : exemplares) {

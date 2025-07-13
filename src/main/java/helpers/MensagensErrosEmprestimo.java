@@ -3,7 +3,7 @@ package helpers;
 import usuarios.Usuario;
 
 
-public class MensagensEmprestimo{
+public class MensagensErrosEmprestimo{
 
     public static void MensagemEmprestimoSemExemplar(){
         System.out.println("Não foi possível realizar o emprestimo, pois não há exemplares disponíveis.");
@@ -25,9 +25,7 @@ public class MensagensEmprestimo{
          System.out.println("Não foi possível realizar o emprestimo, pois o usuário não tem reserva e já há mais reservas do que exemplares disponíveis.");   
     }
 
-    public static void MensagemSucesso(Usuario usuario){
-         System.out.println("Empréstimo do usuário " +  usuario.getNome() + " concluído!");   
-    }
+    
 
 
 }

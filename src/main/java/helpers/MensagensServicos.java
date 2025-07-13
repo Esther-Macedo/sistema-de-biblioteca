@@ -24,5 +24,11 @@ public class MensagensServicos {
         System.out.println(usuario.getNome() + " reservou o livro " + livro.getTitulo() + " com sucesso.");
     }
 
-  
+    public static void mensagemSair() {
+        System.out.println("Encerrando sistema... Tchauzinho!");
+    }
+
+    public static void MensagemSucessoEmprestimo(Usuario usuario){
+         System.out.println("Empréstimo do usuário " +  usuario.getNome() + " concluído!");   
+    }
 }

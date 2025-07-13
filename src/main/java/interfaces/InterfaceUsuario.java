@@ -6,6 +6,7 @@ import java.util.Scanner;
 import base.Repositorio;
 import comandos.*;
 import helpers.CarregadorParametros;
+import helpers.MensagensServicos;
 
 
 public class InterfaceUsuario {
@@ -83,7 +84,6 @@ public class InterfaceUsuario {
         inicializarComandos();
         repo.carregarMemoria();
         System.out.println("Oi, o sistema está rodando!");
-        
         while(running){
 
             String comando = menu();

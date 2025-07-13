@@ -2,18 +2,19 @@ package regras;
 
 import base.Livro;
 import usuarios.Usuario;
-import helpers.MensagensEmprestimo;
+import helpers.MensagensErrosEmprestimo;
+
 
 public class RegraProfessor implements IRegraEmprestimo {
     
     @Override
     public boolean podeEmprestar(Usuario usuario, Livro livro) {
         if (usuario.isDevendo()) {
-            MensagensEmprestimo.MensagemUsuarioEstaDevendo();
+            MensagensErrosEmprestimo.MensagemUsuarioEstaDevendo();
             return false;
 
         } else if (livro.getQtdExemplaresDisponiveis() == 0) {
-            MensagensEmprestimo.MensagemEmprestimoSemExemplar();
+            MensagensErrosEmprestimo.MensagemEmprestimoSemExemplar();
             return false;
 
         }
