@@ -3,18 +3,18 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import helpers.Status;
-import usuarios.IUsuario;
+import usuarios.Usuario;
 
 public class Emprestimo {
 
-    IUsuario usuario;
+    Usuario usuario;
     Exemplar exemplar;
     LocalDateTime dataEmprestimo;
     LocalDateTime dataDevolucao;
     LocalDateTime dataDevolucaoPrevista;
     boolean isCorrente;
     
-    public Emprestimo(IUsuario usuario, Exemplar exemplar){
+    public Emprestimo(Usuario usuario, Exemplar exemplar){
 
         this.usuario = usuario;
         this.exemplar = exemplar;
@@ -37,11 +37,11 @@ public class Emprestimo {
     }
 
 
-    public IUsuario getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(IUsuario usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 

@@ -8,7 +8,7 @@ import base.Livro;
 import base.Reserva;
 import regras.IRegraEmprestimo;
 
-public abstract class Usuario implements IUsuario {
+public abstract class Usuario {
     private String codigo;
     private String nome;
     private int tempoEmprestimo;

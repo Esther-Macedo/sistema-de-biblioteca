@@ -1,13 +1,13 @@
 package regras;
 
 import base.Livro;
-import usuarios.IUsuario;
+import usuarios.Usuario;
 import helpers.MensagensEmprestimo;
 
 public class RegraProfessor implements IRegraEmprestimo {
     
     @Override
-    public boolean podeEmprestar(IUsuario usuario, Livro livro) {
+    public boolean podeEmprestar(Usuario usuario, Livro livro) {
         if (usuario.isDevendo()) {
             MensagensEmprestimo.MensagemUsuarioEstaDevendo();
             return false;
