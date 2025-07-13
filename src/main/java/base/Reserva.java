@@ -56,7 +56,7 @@ public class Reserva {
     }
 
     public String toString(){
-        return String.format("Titulo: %s \n + Data da Reserva: %s \n",this.livro.getTitulo(), this.getDataDaReservaToString());
+        return String.format("Titulo: %s \nData da Reserva: %s \n",this.livro.getTitulo(), this.getDataDaReservaToString());
             
     }
 

@@ -2,7 +2,6 @@ package helpers;
 
 import usuarios.Usuario;
 
-import usuarios.;
 
 public class MensagensEmprestimo{
 
@@ -27,7 +26,7 @@ public class MensagensEmprestimo{
     }
 
     public static void MensagemSucesso(Usuario usuario){
-         System.out.printf("Empréstimo do usuário %s concluído!", usuario.getNome());   
+         System.out.println("Empréstimo do usuário " +  usuario.getNome() + " concluído!");   
     }
 
 

@@ -2,6 +2,7 @@ package comandos;
 
 import base.Repositorio;
 import helpers.CarregadorParametros;
+import helpers.MensagensServicos;
 import usuarios.Usuario;
 
 public class DevolverComando implements IComando {
@@ -13,6 +14,7 @@ public class DevolverComando implements IComando {
         Usuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
 
         usuario.devolver(carregadorParametros.getParametroDois());
+        MensagensServicos.mensagemDevolucao(usuario);
         
     }
 }
