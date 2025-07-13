@@ -6,14 +6,14 @@ import regras.RegraAluno;
 import regras.RegraProfessor;
 import usuarios.AlunoGraduacao;
 import usuarios.AlunoPosGraduacao;
-import usuarios.IUsuario;
+import usuarios.Usuario;
 import usuarios.Professor;
 
 public class Repositorio {
 	
 	private static Repositorio instancia;
 	
-	private List<IUsuario> usuarios = new ArrayList<IUsuario>();
+	private List<Usuario> usuarios = new ArrayList<>();
 	private List<Livro> livros = new ArrayList<Livro>();
 	
 	private Repositorio() {};
@@ -24,8 +24,8 @@ public class Repositorio {
 		return instancia;
 	}
 	
-	public IUsuario obterUsuarioPorCodigo(String codigo) {
-		for (IUsuario usuario  : this.usuarios) {
+	public Usuario obterUsuarioPorCodigo(String codigo) {
+		for (Usuario usuario  : this.usuarios) {
 			if(usuario.getCodigo().equals(codigo)) {
 				return usuario;
 			}

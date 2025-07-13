@@ -3,21 +3,21 @@ package base;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import usuarios.IUsuario;
+import usuarios.Usuario;
 
 public class Reserva {
-    private IUsuario usuario;
+    private Usuario usuario;
     private Livro livro; 
     private LocalDateTime dataDaReserva;
 
 
-    public Reserva(IUsuario usuario, Livro livro){
+    public Reserva(Usuario usuario, Livro livro){
         this.usuario = usuario;
         this.livro = livro;
         this.dataDaReserva = LocalDateTime.now();
     }
 
-    public IUsuario getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
@@ -25,7 +25,7 @@ public class Reserva {
         return usuario.getNome();
     }
 
-    public void setUsuario(IUsuario usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 

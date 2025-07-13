@@ -5,14 +5,14 @@ import helpers.CarregadorParametros;
 import helpers.MensagensEmprestimo;
 import base.Exemplar;
 import base.Livro;
-import usuarios.IUsuario;
+import usuarios.;
 
 public class EmprestarComando implements IComando {
 	public void executar(CarregadorParametros carregadorParametros) {
 
 		Repositorio repositorio = Repositorio.obterInstancia();
 		
-		IUsuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
+		 usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
 		
 		Livro livro = repositorio.obterLivroPorCodigo(carregadorParametros.getParametroDois());
 		

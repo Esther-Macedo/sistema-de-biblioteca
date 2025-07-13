@@ -1,6 +1,8 @@
 package helpers;
 
-import usuarios.IUsuario;
+import usuarios.Usuario;
+
+import usuarios.;
 
 public class MensagensEmprestimo{
 
@@ -24,7 +26,7 @@ public class MensagensEmprestimo{
          System.out.println("Não foi possível realizar o emprestimo, pois o usuário não tem reserva e já há mais reservas do que exemplares disponíveis.");   
     }
 
-    public static void MensagemSucesso(IUsuario usuario){
+    public static void MensagemSucesso(Usuario usuario){
          System.out.printf("Empréstimo do usuário %s concluído!", usuario.getNome());   
     }
 

@@ -2,7 +2,7 @@ package comandos;
 
 import base.Repositorio;
 import helpers.CarregadorParametros;
-import usuarios.IUsuario;
+import usuarios.Usuario;
 
 public class ConsultarUsuarioComando implements IComando {
 
@@ -10,7 +10,7 @@ public class ConsultarUsuarioComando implements IComando {
 	public void executar(CarregadorParametros carregadorParametros) {
 		Repositorio repositorio = Repositorio.obterInstancia();
 				
-		IUsuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
+		Usuario usuario = repositorio.obterUsuarioPorCodigo(carregadorParametros.getParametroUm());
 		
 		usuario.exibirEmprestimos();
 		usuario.exibirReservas();
