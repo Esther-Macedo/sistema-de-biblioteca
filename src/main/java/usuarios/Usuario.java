@@ -1,12 +1,14 @@
 package usuarios;
 
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 import base.Emprestimo;
 import base.Exemplar;
 import base.Livro;
 import base.Reserva;
 import regras.IRegraEmprestimo;
+import helpers.MensagensServicos;
 
 public abstract class Usuario {
     private String codigo;
@@ -21,6 +23,7 @@ public abstract class Usuario {
         this.codigo = codigo;
         this.nome = nome;
         this.devendo = false;
+        this.regraEmprestimo = regraEmprestimo;
     }
 
     public boolean temLivroEmprestado(String codigo) {
@@ -40,12 +43,16 @@ public abstract class Usuario {
         }
     }
 
-    public void reservar(Livro livro) {
-        Reserva reserva = new Reserva(this, livro);
-        livro.adicionarReserva(reserva);
+    public void adicionarReserva( Reserva reserva){
+            this.reservas.add(reserva);
     }
 
-    
+    public void reservar(Livro livro) {
+        Reserva reserva = new Reserva(this, livro);
+        this.adicionarReserva(reserva);
+        livro.adicionarReserva(reserva);
+    }  
+
     public void emprestar(Exemplar exemplar) {
         Emprestimo emprestimo = new Emprestimo(this , exemplar);
         
@@ -58,17 +65,27 @@ public abstract class Usuario {
     }
 
 
-    public void exibirEmprestimos(){
-        System.out.println("Empréstimos");
-        for (Emprestimo emprestimo : emprestimos){
-            emprestimo.exibir();;
+    public void exibirEmprestimos(){     
+        if(emprestimos.size() >=1){
+            System.out.println("Empréstimos:");
+            for (Emprestimo emprestimo : emprestimos){
+                emprestimo.exibir();
+            }
+        }else{
+                MensagensServicos.mensagenUsuarioSemEmprestimos(this);
         }
+        
     }
 
     public void exibirReservas(){
-        System.out.println("Reservas");
-        for (Reserva reserva : reservas){
-            reserva.exibir();
+        
+        if(reservas.size()>=1){
+            System.out.println("Reservas:");
+            for (Reserva reserva : reservas){
+                reserva.exibir();
+            }
+        }else{
+           MensagensServicos.mensagemUsuarioSemReserva(this);
         }
     }
 
@@ -131,6 +148,16 @@ public abstract class Usuario {
     }
 
     public Boolean isDevendo() {
+        this.devendo = false;
+        if(this.emprestimos.size() > 0){
+
+            for(Emprestimo emprestimo : this.emprestimos){
+                if( emprestimo.isCorrente() && emprestimo.getDataDevolucaoPrevista().isBefore(LocalDateTime.now())){
+                    this.devendo = true;
+                }
+            }
+        }
+    
         return devendo;
     }
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import regras.RegraAluno;
 import regras.RegraProfessor;
+import regras.IRegraEmprestimo;
 import usuarios.AlunoGraduacao;
 import usuarios.AlunoPosGraduacao;
 import usuarios.Usuario;
@@ -43,11 +44,14 @@ public class Repositorio {
 	}
 
 	public void carregarMemoria(){
+		IRegraEmprestimo regraGraduacao = new RegraAluno(2);
+		IRegraEmprestimo regraPos = new RegraAluno(3);
+		IRegraEmprestimo regraProfessor = new RegraProfessor();
 		
-		usuarios.add(new AlunoGraduacao("123", "João da Silva", new RegraAluno(2)));
-		usuarios.add(new AlunoPosGraduacao("456", "Luiz Fernando Rodrigues", new RegraAluno(2)));
-		usuarios.add(new AlunoGraduacao("789", "Pedro Paulo", new RegraAluno(2)));
-		usuarios.add(new Professor("100", "Carlos Lucena", new RegraProfessor()));
+		usuarios.add(new AlunoGraduacao("123", "João da Silva", regraGraduacao));
+		usuarios.add(new AlunoPosGraduacao("456", "Luiz Fernando Rodrigues", regraPos));
+		usuarios.add(new AlunoGraduacao("789", "Pedro Paulo", regraGraduacao));
+		usuarios.add(new Professor("100", "Carlos Lucena", regraProfessor));
 
 		String[] autoresPercy = {"Rick Riordan"};
 		Livro percyJackson = new Livro("123", "Percy Jackson", "Intrinseca", "2ª", autoresPercy, 1999);

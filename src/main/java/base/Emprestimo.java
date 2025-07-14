@@ -130,7 +130,7 @@ public class Emprestimo {
             dataDevolucao = this.getDataDevolucaoToString();
         }
 
-        String dadosFormatados = String.format("Titulo: %s \n Data de Emprestimo: %s \n Status: %s \n %s %s \n", 
+        String dadosFormatados = String.format("Titulo: %s \nData de Emprestimo: %s \nStatus: %s \n%s %s \n", 
                                                 this.getTituloExemplar(), this.getDataEmprestimoToString(), status, devolucao, dataDevolucao);
         return dadosFormatados;
     }

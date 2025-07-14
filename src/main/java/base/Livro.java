@@ -1,6 +1,7 @@
 package base;
 import java.util.ArrayList;
 
+import helpers.MensagensServicos;
 import helpers.Status;
 import interfaces.ISubject;
 import interfaces.IObservadorReserva;
@@ -29,6 +30,7 @@ public class Livro implements ISubject {
 
     public void adicionarReserva(Reserva reserva) {
         this.reservas.add(reserva);
+        this.notificarObservadores();
     }
     
     public void adicionarExemplar(Exemplar exemplar) {
@@ -37,6 +39,7 @@ public class Livro implements ISubject {
 
     public void registrarObservadores(IObservadorReserva observador){
         observadores.add(observador);
+        MensagensServicos.mensagemRegistrar(this);
     }
 
     public void removerObservadores(IObservadorReserva observador){
@@ -109,15 +112,21 @@ public class Livro implements ISubject {
     }
 
     public int getQtdExemplaresDisponiveis() {
-        return this.exemplares.size();
+        int qtdExemplaresDisponiveis = 0;
+        for (Exemplar exemplar : exemplares) {
+            if(exemplar.getStatus().equals("Disponível")) {
+                qtdExemplaresDisponiveis++;
+            }
+        }
+        return qtdExemplaresDisponiveis;
     }
 
 
-    // Isso aqui fere Responsabilidade Unica?
+    
     public Exemplar buscarAtualizarExemplar() {
         if (exemplares.size() > 0) {
             for (Exemplar exemplar : exemplares) {
-                if(exemplar.getStatus().equals("Disponivel")) {
+                if(exemplar.getStatus().equals("Disponível")) {
                     exemplar.setStatus(Status.EMPRESTADO);
                     return exemplar;
                 }

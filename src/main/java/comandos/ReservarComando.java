@@ -2,9 +2,9 @@ package comandos;
 
 import base.Repositorio;
 import helpers.CarregadorParametros;
+import helpers.MensagensServicos;
 import usuarios.Usuario;
 import base.Livro;
-import usuarios.;
 
 public class ReservarComando implements IComando {
 	public void executar(CarregadorParametros carregadorParametros) {
@@ -15,6 +15,7 @@ public class ReservarComando implements IComando {
 		Livro livro = repositorio.obterLivroPorCodigo(carregadorParametros.getParametroDois());
 
 		usuario.reservar(livro);
+		MensagensServicos.mensagemReservaComSucesso(usuario,livro);
 		
 	}
 

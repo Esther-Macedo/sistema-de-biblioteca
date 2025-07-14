@@ -3,16 +3,20 @@ package interfaces;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import base.Repositorio;
 import comandos.*;
 import helpers.CarregadorParametros;
+import helpers.MensagensServicos;
 
 
 public class InterfaceUsuario {
+   	private	static Scanner scanner =  new Scanner(System.in);
+	
 	private static InterfaceUsuario instancia;
 
 	private static HashMap<String,IComando> comandos = new HashMap<String,IComando>();
 	
-	public void executarComando(String strComando, CarregadorParametros parametros) {
+	public static void executarComando(String strComando, CarregadorParametros parametros) {
 		IComando comando = comandos.get(strComando);
 		comando.executar(parametros);
 	}
@@ -41,17 +45,16 @@ public class InterfaceUsuario {
 	
 	//M�todos abaixo para fazer a interface com usu�rio via linha de commando
 	//...
+
 	
-	public String obterdados(){
-		//esse scanner tem que estar dentro de uma fábrica
-		Scanner scanner = new Scanner(System.in);
+
+	public static String obterdados() {
 		String entrada = scanner.nextLine();
-		
-		scanner.close();
 		return entrada;	
 	}
 
-	public String menu(){
+
+	public static String menu(){
 		String entrada = obterdados();
 		if(entrada.length()==0){
 			return "";
@@ -73,6 +76,24 @@ public class InterfaceUsuario {
 		
 	}
 
+	
+	public static void main (String[] args){
+        Repositorio repo = Repositorio.obterInstancia();
+        // InterfaceUsuario interfaceUsuario = InterfaceUsuario.obterInstancia();
+        boolean running = true;
+        inicializarComandos();
+        repo.carregarMemoria();
+        System.out.println("Oi, o sistema está rodando!");
+        while(running){
 
+            String comando = menu();
+            if(comando.equals("sai")){
+                running = false;
+            }
+        }
+
+		scanner.close();
+
+    }
 
 }
