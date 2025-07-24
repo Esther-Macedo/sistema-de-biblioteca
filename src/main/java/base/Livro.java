@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import helpers.MensagensServicos;
 import helpers.Status;
 import interfaces.ISubject;
+import usuarios.Usuario;
 import interfaces.IObservadorReserva;
 
 
@@ -31,6 +32,14 @@ public class Livro implements ISubject {
     public void adicionarReserva(Reserva reserva) {
         this.reservas.add(reserva);
         this.notificarObservadores();
+    }
+
+    public void removerReserva(Usuario usuario) {
+        for (Reserva reserva : reservas) {
+            if (reserva.getUsuario().equals(usuario)) {
+                reserva = null;
+            }
+        }
     }
     
     public void adicionarExemplar(Exemplar exemplar) {
@@ -153,7 +162,7 @@ public class Livro implements ISubject {
         }
 
 
-        String dadosFormatados = String.format("Titulo: %s \n Quantidade de Reservas: %s \n Nomes das reservas: %s \n Emprestimos: %s \n", 
+        String dadosFormatados = String.format("Titulo: %s \nQuantidade de Reservas: %s \nNomes das reservas: %s \nEmprestimos: %s \n", 
                                                 this.getTitulo(), qtdReservas, nomesReservas, exemplaresEmprestados);
         return dadosFormatados;
     }

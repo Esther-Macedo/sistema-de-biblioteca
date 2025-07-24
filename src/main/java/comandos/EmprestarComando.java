@@ -20,6 +20,7 @@ public class EmprestarComando implements IComando {
 		if (usuario.podeEmprestar(livro)) {
 			Exemplar exemplar = livro.buscarAtualizarExemplar();
 			usuario.emprestar(exemplar);
+			livro.removerReserva(usuario);
 			MensagensServicos.MensagemSucessoEmprestimo(usuario);
         }
 	}

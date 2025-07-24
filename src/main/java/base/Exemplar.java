@@ -66,7 +66,7 @@ public class Exemplar {
     }
 
      public String toString(){
-        return String.format("Código do exemplar: %s \n + Status do exemplar: %s \n, Empréstimo atual: %s",this.getCodigo(), this.getStatus(), this.getInfoEmprestimoCorrente());
+        return String.format("\nCódigo do exemplar: %s \nStatus do exemplar: %s \nEmpréstimo atual: %s",this.getCodigo(), this.getStatus(), this.getInfoEmprestimoCorrente());
             
     }
 
