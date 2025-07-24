@@ -1,6 +1,8 @@
 package base;
 import java.util.ArrayList;
 
+import java.util.Iterator;
+
 import helpers.MensagensServicos;
 import helpers.Status;
 import interfaces.ISubject;
@@ -35,9 +37,11 @@ public class Livro implements ISubject {
     }
 
     public void removerReserva(Usuario usuario) {
-        for (Reserva reserva : reservas) {
+        Iterator<Reserva> iterator = reservas.iterator();
+        while (iterator.hasNext()) {
+            Reserva reserva = iterator.next();
             if (reserva.getUsuario().equals(usuario)) {
-                reserva = null;
+                iterator.remove();
             }
         }
     }
